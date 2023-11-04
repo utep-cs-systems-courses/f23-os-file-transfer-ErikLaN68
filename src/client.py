@@ -58,13 +58,16 @@ if delay != 0:
     time.sleep(int(delay))
     print("done sleeping")
 
+data2 = ''.encode()
 while 1:
-    data = s.recv(1024).decode()
-    print("Received '%s'" % data)
+    data = s.recv(1024)
+    data2 = data2 + data
     if len(data) == 0:
         break
 print("Zero length read.  Closing")
 
-fileParts = mytar.puller(data)
+fileParts = mytar.puller(data2)
+print(fileParts)
 mytar.createFromMyTar(fileParts)
+
 s.close()

@@ -32,7 +32,7 @@ while True:
     conn, addr = s.accept() # wait until incoming connection request (and accept it)
     if os.fork() == 0:      # child becomes server
         print('Connected by', addr)
-        framedNameAndContents = mytar.framer(["foo.txt"])
+        framedNameAndContents = mytar.framer(["foo.txt","goo.gif"])
         conn.send(framedNameAndContents)
         # time.sleep(0.25);       # delay 1/4s
         # conn.send(b"LaNeave")
