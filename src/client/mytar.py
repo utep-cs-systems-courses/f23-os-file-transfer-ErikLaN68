@@ -73,7 +73,7 @@ def createFromMyTar(filePart):
     for index, tarPart in enumerate(filePart):
         if index == 0 or index % 2 == 0:
             #Changed this for test purpose
-            outFile = os.open('test-output/'+tarPart.decode(), os.O_CREAT | os.O_WRONLY)
+            outFile = os.open(tarPart.decode(), os.O_CREAT | os.O_WRONLY)
         else:
             os.write(outFile,bytes(tarPart))
             os.close(outFile)
