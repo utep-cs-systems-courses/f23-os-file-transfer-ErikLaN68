@@ -73,14 +73,7 @@ while True:
     
     #parent
     print(conn)
+    # can't unpack conn which is socket object
     addr = conn
-    s.close()
+    conn.close()
     pidAddr[forkResult] = addr
-    
-      
-    # # conn, addr = s.accept() # wait until incoming connection request (and accept it)
-    # if os.fork() == 0:      # child becomes server
-    #     print('Connected by', addr)
-    #     framedNameAndContents = mytar.framer(["foo.txt","goo.gif"])
-    #     conn.send(framedNameAndContents)
-    #     conn.shutdown(socket.SHUT_WR)
